@@ -1,23 +1,23 @@
 # 🚢 Evidently AI Sets Sail in Docker: A Voyage into Data Monitoring 🐳📊
 
-## 📌 Introduction
+## 📌 Overview
 
-This guide walks through setting up an Evidently AI-based Streamlit application running inside a Docker container. The application:
+This guide explains how to set up an `Evidently AI` dashboard within a `Streamlit` application and run it inside a `Docker` container. With this setup, you can:
 
--   Uses `Evidently AI` for monitoring machine learning models.
--   Provides an interactive dashboard in `Streamlit`.
--   Organizes reports and projects efficiently.
--   Uses `Docker` for easy deployment and management.
+- Monitor machine learning models effectively.
+- Interact with a dynamic dashboard powered by `Streamlit`.
+- Manage reports and projects efficiently.
+- Leverage `Docker` for seamless deployment and scalability.
 
 ---
 
-## 📂 Project Structure
+## 📂 Directory Structure
 
-Ensure your working directory contains the following files and folders:
+Ensure your project directory includes the following components:
 
 ```
 📁 evidently-ai-streamlit
- ├── 📂 projects                # Contains different ML monitoring projects
+ ├── 📂 projects                # Houses ML monitoring projects
  │    ├── 📂 project_1
  │    │    ├── 📂 reports       # Stores monitoring reports
  │    │    ├── ...
@@ -26,60 +26,60 @@ Ensure your working directory contains the following files and folders:
  │    │    ├── ...
  │    ├── ...
  │
- ├── 📂 src                     # Contains Python scripts for UI and utilities
+ ├── 📂 src                     # Python scripts for UI and utilities
  │    ├── ui.py                 # UI components
- │    ├── utils.py              # Utility functions
+ │    ├── utils.py              # Helper functions
  │    ├── ...
  │
- ├── 📂 static                  # Stores static assets (CSS, images, etc.)
+ ├── 📂 static                  # Static assets like CSS and images
  │    ├── style.css             # Custom styling
  │    ├── ...
  │
  ├── 📄 app.py                   # Main Streamlit application
- ├── 📄 Dockerfile               # Defines the Docker image for Streamlit
- ├── 📄 requirements.txt          # Python dependencies
- ├── 📄 README.md                 # Project documentation
+ ├── 📄 Dockerfile               # Docker configuration for the app
+ ├── 📄 requirements.txt          # Lists dependencies
+ ├── 📄 README.md                 # Documentation
 ```
 
 ---
 
-## 📝 Main Application (app.py - Overview)
+## 📝 Application Core (`app.py` Overview)
 
-The `app.py` script:
+The `app.py` script manages the following functionalities:
 
--   Loads available projects and reports dynamically.
--   Allows users to select a project, period, and report.
--   Renders `Evidently AI` reports inside `Streamlit`.
--   Handles errors gracefully if a project or report is missing.
--   Uses `src/ui.py` for UI elements and `src/utils.py` for helper functions.
+- Dynamically loads projects and available reports.
+- Provides user-friendly project selection and period filtering.
+- Integrates `Evidently AI` reports seamlessly within `Streamlit`.
+- Implements error handling for missing reports or projects.
+- Utilizes `src/ui.py` for UI rendering and `src/utils.py` for backend logic.
 
-Key functions:
+Key functions include:
 
--   `display_sidebar_header()`: Renders the sidebar with branding and navigation.
--   `select_project()`: Lets users pick a project.
--   `select_period()`: Allows selection of a reporting period.
--   `select_report()`: Fetches available reports.
--   `display_report()`: Loads and displays the selected report.
+- `display_sidebar_header()`: Creates a sidebar for navigation.
+- `select_project()`: Allows users to choose a project.
+- `select_period()`: Enables selection of reporting periods.
+- `select_report()`: Retrieves and lists available reports.
+- `display_report()`: Loads and displays selected reports interactively.
 
 ---
 
-## 🐳 Dockerfile (Containerizing Streamlit App)
+## 🐳 Docker Configuration (`Dockerfile`)
 
 ```dockerfile
-# Use the official Python base image
+# Use Python base image
 FROM python:3.10
 
-# Set the working directory in the container
+# Define working directory inside the container
 WORKDIR /app
 
-# Copy the requirements file and install dependencies
+# Copy dependencies and install them
 COPY requirements.txt /app/
 RUN pip install --no-cache-dir --break-system-packages -r requirements.txt
 
-# Copy the entire project into the container
+# Copy the full project into the container
 COPY . /app/
 
-# Expose the port Streamlit runs on
+# Expose the Streamlit port
 EXPOSE 8501
 
 # Run the Streamlit app
@@ -88,7 +88,7 @@ CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0
 
 ---
 
-## 🐍 Python Dependencies (requirements.txt)
+## 📦 Python Dependencies (`requirements.txt`)
 
 ```txt
 category_encoders==2.6.0
@@ -111,43 +111,44 @@ altair==4.0
 
 ---
 
-## 🛠 Steps to Run the Application
+## 🚀 How to Run the Application
 
 ### 1️⃣ Clone the Repository & Navigate to the Project
 
 ```sh
 git clone <repo-link>
-cd Evidently AI Sets Sail in Docker
+cd evidently-ai-streamlit
 ```
 
-### 2️⃣ Build & Run Containers
+### 2️⃣ Build & Run the Docker Container
 
 ```sh
 docker build -t evidently-streamlit .
 docker run -p 8501:8501 evidently-streamlit
 ```
- 
-### 3️⃣ Access the Streamlit App
 
-Open [http://localhost:8501](http://localhost:8501) in your browser.
+### 3️⃣ Open the Streamlit App
 
-![image](https://github.com/vidhi-jaju/DockSpace/blob/ff8a146fe1dd823cbec9c8928ee976e68157ad40/8.%20Evidently%20AI%20Sets%20Sail%20in%20Docker/img1.png)
+Visit [http://localhost:8501](http://localhost:8501) in your browser.
 
----
-
-## 🎯 Conclusion
-
-✅ Successfully deployed an `Evidently AI` dashboard using `Streamlit` inside Docker.
-✅ Integrated report selection for different projects.
-✅ Used Docker for easy deployment and scalability.
-✅ Organized code into modular UI and utility functions.
+![Streamlit Dashboard](https://github.com/Tanmay-hue/DockerSpace/blob/main/8.%20Evidently%20AI%20Sets%20Sail%20in%20Docker/image.png)
 
 ---
 
-## 🚀 Next Steps
+## 🎯 Summary
 
-🔹 Add authentication for project access.
-🔹 Implement report comparisons over different periods.
-🔹 Deploy this setup on a cloud platform like AWS/GCP.
+- ✅ Successfully deployed an `Evidently AI` dashboard with `Streamlit` inside `Docker`.
+- ✅ Implemented dynamic project-based report selection.
+- ✅ Used Docker for streamlined deployment and scalability.
+- ✅ Organized the code into modular components for better maintenance.
 
-🎯 Keep exploring and happy coding! 🚀
+---
+
+## 🔜 Future Enhancements
+
+🔹 Implement authentication for secure project access.
+🔹 Enable report comparison across different time periods.
+🔹 Deploy on cloud platforms such as AWS/GCP for global accessibility.
+
+💡 Keep innovating and happy coding! 🚀
+
