@@ -116,7 +116,7 @@ docker run -p 8501:8501 streamlit-app
 ## 🎯 **Final Thoughts**  
 Congratulations! Your **Streamlit application** is now fully Dockerized and ready to go. 🚀🛳  
 
-![Streamlit App Screenshot](https://github.com/vidhi-jaju/DockSpace/blob/ffeee9124d5ab5508d44ce7cdb2debb5a6ce94b1/2.%20Dockerized%20Streamlit%20Development%20Environment/Images/Screenshot%202025-02-19%20013824.png?raw=true)
+![Streamlit App Screenshot](https://github.com/Tanmay-hue/DockerSpace/blob/main/2.%20Dockerized%20Streamlit%20Development%20Environment/image.png)
 ![Streamlit App Screenshot](https://github.com/vidhi-jaju/DockSpace/blob/ffeee9124d5ab5508d44ce7cdb2debb5a6ce94b1/2.%20Dockerized%20Streamlit%20Development%20Environment/Images/Screenshot%202025-02-19%20013835.png)
 ![Streamlit App Screenshot](https://github.com/vidhi-jaju/DockSpace/blob/ffeee9124d5ab5508d44ce7cdb2debb5a6ce94b1/2.%20Dockerized%20Streamlit%20Development%20Environment/Images/Screenshot%202025-02-19%20013853.png)
 
