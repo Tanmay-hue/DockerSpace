@@ -55,17 +55,17 @@ Verify the installation:
 ```bash
 kubectl version --client
 ```
-![image](https://github.com/vidhi-jaju/DockSpace/blob/e8159bccb2036cd49d457e38687b868940b3800f/9.%20Minikube%20with%20Docker%20on%20Windows/images/1.png)
+![image](https://github.com/Tanmay-hue/DockerSpace/blob/main/9.%20Minikube%20with%20Docker%20on%20Windows/images/1.png)
 
-![image](https://github.com/vidhi-jaju/DockSpace/blob/54b356d888b5072f9cd4f80b69f6c1bf9277a7df/9.%20Minikube%20with%20Docker%20on%20Windows/images/2.png)
+![image](https://github.com/Tanmay-hue/DockerSpace/blob/main/9.%20Minikube%20with%20Docker%20on%20Windows/images/2.png)
 
-![image](https://github.com/vidhi-jaju/DockSpace/blob/54b356d888b5072f9cd4f80b69f6c1bf9277a7df/9.%20Minikube%20with%20Docker%20on%20Windows/images/3.png)
+![image](https://github.com/Tanmay-hue/DockerSpace/blob/main/9.%20Minikube%20with%20Docker%20on%20Windows/images/3.png)
 
-![image](https://github.com/vidhi-jaju/DockSpace/blob/54b356d888b5072f9cd4f80b69f6c1bf9277a7df/9.%20Minikube%20with%20Docker%20on%20Windows/images/4.png)
+![image](https://github.com/Tanmay-hue/DockerSpace/blob/main/9.%20Minikube%20with%20Docker%20on%20Windows/images/4.png)
 
-![image](https://github.com/vidhi-jaju/DockSpace/blob/54b356d888b5072f9cd4f80b69f6c1bf9277a7df/9.%20Minikube%20with%20Docker%20on%20Windows/images/5.png)
+![image](https://github.com/Tanmay-hue/DockerSpace/blob/main/9.%20Minikube%20with%20Docker%20on%20Windows/images/5.png)
 
-![image](https://github.com/vidhi-jaju/DockSpace/blob/54b356d888b5072f9cd4f80b69f6c1bf9277a7df/9.%20Minikube%20with%20Docker%20on%20Windows/images/6.png)
+![image](https://github.com/Tanmay-hue/DockerSpace/blob/main/9.%20Minikube%20with%20Docker%20on%20Windows/images/6.png)
 
 ---
 
@@ -83,7 +83,7 @@ Verify the cluster status:
 ```bash
 minikube status
 ```
-![image](https://github.com/vidhi-jaju/DockSpace/blob/54b356d888b5072f9cd4f80b69f6c1bf9277a7df/9.%20Minikube%20with%20Docker%20on%20Windows/images/7.png)
+![image](https://github.com/Tanmay-hue/DockerSpace/blob/main/9.%20Minikube%20with%20Docker%20on%20Windows/images/7.png)
 
 ---
 
@@ -106,7 +106,7 @@ kubectl expose deployment nginx --type=NodePort --port=80
 minikube service nginx --url
 ```
 Open the generated URL in your browser to access the Nginx server. 🌐
-![image](https://github.com/vidhi-jaju/DockSpace/blob/54b356d888b5072f9cd4f80b69f6c1bf9277a7df/9.%20Minikube%20with%20Docker%20on%20Windows/images/8.png)
+![image](https://github.com/Tanmay-hue/DockerSpace/blob/main/9.%20Minikube%20with%20Docker%20on%20Windows/images/8.png)
 
 ---
 
@@ -132,7 +132,7 @@ kubectl get pods
 kubectl delete service nginx
 kubectl delete deployment nginx
 ```
-![image](https://github.com/vidhi-jaju/DockSpace/blob/54b356d888b5072f9cd4f80b69f6c1bf9277a7df/9.%20Minikube%20with%20Docker%20on%20Windows/images/9.png)
+![image](https://github.com/Tanmay-hue/DockerSpace/blob/main/9.%20Minikube%20with%20Docker%20on%20Windows/images/9.png)
 
 ---
 
@@ -148,7 +148,7 @@ minikube stop
 minikube delete
 ```
 This removes all Kubernetes resources and stops the cluster.
-![image](https://github.com/vidhi-jaju/DockSpace/blob/54b356d888b5072f9cd4f80b69f6c1bf9277a7df/9.%20Minikube%20with%20Docker%20on%20Windows/images/10.png)
+![image](https://github.com/Tanmay-hue/DockerSpace/blob/main/9.%20Minikube%20with%20Docker%20on%20Windows/images/10.png)
 
 ---
 
