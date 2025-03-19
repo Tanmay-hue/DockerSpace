@@ -22,10 +22,10 @@ In this tutorial, we focus on **custom bridge networks** for controlled networki
 
 ## 🔥 Why Choose a Custom Bridge Network?
 A **custom bridge network** brings several benefits:
-✅ **Enhanced Security** – Containers on different networks are **isolated** by default.
-✅ **Optimized Performance** – Enables direct communication with minimal overhead.
-✅ **DNS Resolution** – Allows name-based communication between containers.
-✅ **Greater Control** – Supports custom **subnets, IP ranges, and gateways**.
+- ✅ **Enhanced Security** – Containers on different networks are **isolated** by default.
+- ✅ **Optimized Performance** – Enables direct communication with minimal overhead.
+- ✅ **DNS Resolution** – Allows name-based communication between containers.
+- ✅ **Greater Control** – Supports custom **subnets, IP ranges, and gateways**.
 
 To illustrate, we’ll create a **custom bridge network** named `tanmay-bridge` and connect multiple containers to it.
 
@@ -105,8 +105,8 @@ docker exec -it tanmay-database ping 172.17.0.2
 docker network inspect tanmay-bridge
 docker network inspect bridge
 ```
-✅ `tanmay-bridge` should contain `tanmay-database` & `tanmay-server-A`.
-✅ The **default bridge network** should contain `tanmay-server-B`.
+- ✅ `tanmay-bridge` should contain `tanmay-database` & `tanmay-server-A`. 
+- ✅ The **default bridge network** should contain `tanmay-server-B`.
 
 ---
 
