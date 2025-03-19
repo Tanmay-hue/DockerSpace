@@ -1,119 +1,119 @@
-# 🚀 Docker Bridge: Balancing Isolation & Connectivity
+# 🌍 Docker Bridge: Ensuring Isolation & Connectivity
 
 ## 📌 Objective
-The goal of this exercise is to explore and demonstrate **network isolation** in Docker containers. We will examine how containers within the same **custom bridge network** can communicate, while those on different networks remain **isolated**. Understanding this is crucial for securing microservices and containerized applications.  
+This guide aims to explore **network isolation** in Docker containers by demonstrating how containers within the same **custom bridge network** can interact, while those on separate networks remain **isolated**. Mastering this concept is essential for **securing microservices** and ensuring proper communication within containerized environments.
 
 ---
 
-## 🌐 Introduction to Docker Networking
-Docker networking is fundamental for **containerized applications**, allowing containers to communicate while ensuring **security and isolation**. Docker provides several networking options:
+## 🚢 Understanding Docker Networking
+Networking is a key aspect of **containerized applications**, enabling interaction between containers while maintaining **security and separation**. Docker offers multiple networking configurations:
 
-### 🔹 Types of Docker Networks:
-- **Bridge Network (Default)** – Allows communication between containers using internal IPs unless restricted.
-- **Custom Bridge Network** – Offers better control and supports name-based resolution.
-- **Host Network** – Attaches containers directly to the host’s network stack.
-- **Overlay Network** – Enables communication across multiple hosts (Docker Swarm).
-- **Macvlan Network** – Assigns a MAC address to each container, making them appear as separate devices.
-- **None Network** – Completely disables networking.
+### 🏗️ Docker Network Types:
+- **Bridge Network (Default)** – Allows internal communication between containers unless restricted.
+- **Custom Bridge Network** – Provides enhanced control and enables name-based communication.
+- **Host Network** – Directly attaches containers to the host’s network stack.
+- **Overlay Network** – Facilitates multi-host communication (Docker Swarm).
+- **Macvlan Network** – Assigns MAC addresses to containers, making them appear as distinct network devices.
+- **None Network** – Completely disables networking for containers.
 
-For this demonstration, we focus on the **custom bridge network**, which improves control and **network isolation**.
-
----
-
-## ⚡ Why Use a Custom Bridge Network?
-A **custom bridge network** offers several advantages:
-✅ **Improved Security** – Containers on different networks are isolated by default.
-✅ **Better Performance** – Direct communication without host networking stack overhead.
-✅ **DNS-Based Resolution** – Containers communicate via names instead of IPs.
-✅ **Greater Control** – Define specific **subnets, IP ranges, and gateways**.
-
-To demonstrate, we create a **custom bridge network** called `vidhi-bridge` and connect multiple containers.
+In this tutorial, we focus on **custom bridge networks** for controlled networking and **isolation**.
 
 ---
 
-## 🔧 1. Creating a Custom Bridge Network
-```bash
-docker network create --driver bridge --subnet 172.20.0.0/16 --ip-range 172.20.240.0/20 vidhi-bridge
-```
-### 🔍 Explanation:
-- `--driver bridge` → Uses the default **bridge network mode**.
-- `--subnet 172.20.0.0/16` → Defines the network’s **IP range**.
-- `--ip-range 172.20.240.0/20` → Allocates IPs **dynamically**.
+## 🔥 Why Choose a Custom Bridge Network?
+A **custom bridge network** brings several benefits:
+✅ **Enhanced Security** – Containers on different networks are **isolated** by default.
+✅ **Optimized Performance** – Enables direct communication with minimal overhead.
+✅ **DNS Resolution** – Allows name-based communication between containers.
+✅ **Greater Control** – Supports custom **subnets, IP ranges, and gateways**.
+
+To illustrate, we’ll create a **custom bridge network** named `tanmay-bridge` and connect multiple containers to it.
 
 ---
 
-## 🚀 2. Running Containers in the Custom Network
-### Running **Redis Container** (`vidhi-database`)
+## ⚙️ 1. Setting Up a Custom Bridge Network
 ```bash
-docker run -itd --net=vidhi-bridge --name=vidhi-database redis
+docker network create --driver bridge --subnet 172.20.0.0/16 --ip-range 172.20.240.0/20 tanmay-bridge
 ```
-### Running **BusyBox Container** (`vidhi-server-A`)
+### 📖 Breakdown:
+- `--driver bridge` → Specifies the **bridge mode**.
+- `--subnet 172.20.0.0/16` → Defines the overall **IP range**.
+- `--ip-range 172.20.240.0/20` → Manages **dynamic IP allocation**.
+
+---
+
+## 🚀 2. Deploying Containers within the Custom Network
+### Running a **Redis Container** (`tanmay-database`)
 ```bash
-docker run -itd --net=vidhi-bridge --name=vidhi-server-A busybox
+docker run -itd --net=tanmay-bridge --name=tanmay-database redis
+```
+### Running a **BusyBox Container** (`tanmay-server-A`)
+```bash
+docker run -itd --net=tanmay-bridge --name=tanmay-server-A busybox
 ```
 
-### 📌 Check Container IPs
+### 🔍 Retrieving Container IPs
 ```bash
-docker network inspect vidhi-bridge
+docker network inspect tanmay-bridge
 ```
-Expected Output:
+**Expected Output:**
 ```
- vidhi-database: 172.20.240.1
- vidhi-server-A: 172.20.240.2
+ tanmay-database: 172.20.240.1
+ tanmay-server-A: 172.20.240.2
 ```
 
 ---
 
-## 📔 3. Testing Communication Between Containers
-### Ping from **vidhi-database** to **vidhi-server-A**
+## 📡 3. Verifying Container Communication
+### Test Ping from **tanmay-database** to **tanmay-server-A**
 ```bash
-docker exec -it vidhi-database ping 172.20.240.2
+docker exec -it tanmay-database ping 172.20.240.2
 ```
-### Ping from **vidhi-server-A** to **vidhi-database**
+### Test Ping from **tanmay-server-A** to **tanmay-database**
 ```bash
-docker exec -it vidhi-server-A ping 172.20.240.1
+docker exec -it tanmay-server-A ping 172.20.240.1
 ```
-✅ Expected Outcome: Both containers should successfully **ping** each other.
+✅ **Expected Result:** Containers should successfully **ping** each other.
 
 ---
 
-## 🚧 4. Demonstrating Network Isolation with a Third Container
-We add another container (`vidhi-server-B`) on the **default bridge network**.
+## 🔒 4. Demonstrating Isolation with a Separate Container
+We will now introduce a new container (`tanmay-server-B`) on the **default bridge network**.
 ```bash
-docker run -itd --name=vidhi-server-B busybox
+docker run -itd --name=tanmay-server-B busybox
 ```
-### 📌 Get IP of `vidhi-server-B`
+### 📌 Retrieve IP of `tanmay-server-B`
 ```bash
-docker inspect -format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' vidhi-server-B
+docker inspect -format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' tanmay-server-B
 ```
-(Example IP: `172.17.0.2`)
+(Example output: `172.17.0.2`)
 
 ---
 
-## ❌ 5. Testing Communication Between Different Networks
-Ping from `vidhi-database` to `vidhi-server-B`:
+## 🚫 5. Testing Isolation Between Networks
+Attempting to ping `tanmay-server-B` from `tanmay-database`:
 ```bash
-docker exec -it vidhi-database ping 172.17.0.2
+docker exec -it tanmay-database ping 172.17.0.2
 ```
-🚨 **Expected Outcome:** The ping should **fail**, as they are on different networks.
+🚨 **Expected Outcome:** The ping should **fail** since the containers belong to different networks.
 
 ---
 
-## 🔍 6. Confirming Network Isolation
-### Inspect Networks
+## 🔎 6. Inspecting Network Details
+### View Network Configurations
 ```bash
-docker network inspect vidhi-bridge
+docker network inspect tanmay-bridge
 docker network inspect bridge
 ```
-✅ `vidhi-bridge` should contain `vidhi-database` & `vidhi-server-A`.
-✅ `bridge` should contain `vidhi-server-B`.
+✅ `tanmay-bridge` should contain `tanmay-database` & `tanmay-server-A`.
+✅ The **default bridge network** should contain `tanmay-server-B`.
 
 ---
 
-## 🏆 Conclusion
-- **Containers in the same network** can communicate.
-- **Containers in different networks** are isolated **by default**.
-- Docker’s **networking model** ensures security and separation unless explicitly connected.
+## 🏁 Conclusion
+- **Containers in the same network** can communicate effortlessly.
+- **Containers in different networks** are **isolated** by default.
+- Docker’s **networking model** provides a robust and secure communication framework.
 
-🚀 **Now you have mastered Docker Bridge Networking!** 🎯
+🎯 **You now have a strong grasp of Docker Bridge Networking!** 🚀
 
