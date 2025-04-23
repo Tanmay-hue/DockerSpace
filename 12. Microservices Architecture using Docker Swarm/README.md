@@ -63,7 +63,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return "Divyansh Saxena"
+    return "Tanmay Singh"
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
@@ -208,7 +208,7 @@ http://localhost:8080
 
 Expected output:
 ```
-API Gateway: Divyansh Saxena
+API Gateway: Tanmay Singh
 ```
 ![img](https://github.com/Tanmay-hue/DockerSpace/blob/main/12.%20Microservices%20Architecture%20using%20Docker%20Swarm/assets/7.png)
 
