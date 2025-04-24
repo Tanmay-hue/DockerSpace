@@ -46,6 +46,14 @@ Welcome to **DockSpace**! 🌊 This repository is my personal harbor of containe
 **10. [Deploying a Streamlit App in Docker on AWS EC2](https://github.com/Tanmay-hue/DockerSpace/tree/main/10.%20Deploying%20a%20Streamlit%20App%20in%20Docker%20on%20AWS%20EC2) ☁️**
    - **Goal:** Deploy a containerized Streamlit application on an AWS EC2 instance for seamless and scalable web app hosting.  
    - **Key Focus:** AWS networking, Docker containerization, cloud deployment, and security.
+
+**11. [Microservices Orchestration with Minikube & Kubernetes](https://github.com/Tanmay-hue/DockerSpace/tree/main/11.Microservices%20Orchestration%20with%20Minikube%20and%20Kubernetes) ☸️**  
+   - **Goal:** Deploy and manage microservices efficiently using Kubernetes and Minikube.  
+   - **Key Focus:** Service discovery, load balancing, and containerized microservices deployment.  
+
+**12. [Microservices Architecture using Docker Swarm](https://github.com/Tanmay-hue/DockerSpace/tree/main/12.%20Microservices%20Architecture%20using%20Docker%20Swarm) ⚓**  
+   - **Goal:** Build and deploy a scalable microservices-based application using Docker Swarm.  
+   - **Key Focus:** Load balancing, service discovery, and distributed application management.
 ---
 
 
