@@ -23,11 +23,11 @@ docker run -dit --name alpine_with_bind_mount -v C:\Users\asus\docker_data:/data
 ### 📂 Step 2: Creating a File in the Bind-Mounted Directory
 Inside the container, you executed:
 ```sh
-docker exec -it alpine_with_bind_mount sh -c "echo 'Hello, Tarak!' > /data/testfile.txt"
+docker exec -it alpine_with_bind_mount sh -c "echo 'Hello, tanmay!' > /data/testfile.txt"
 ```
 #### 📋 Observations:
 - A shell was launched in the running container.
-- A file `testfile.txt` was created inside `/data` with the content **"Hello, Tarak!"**.
+- A file `testfile.txt` was created inside `/data` with the content **"Hello, tanmay!"**.
 - As `/data` is mapped to a host directory, the file was actually stored at `C:\Users\asus\docker_data`.
 
 ---
@@ -39,7 +39,7 @@ docker exec -it alpine_with_bind_mount sh -c "cat /data/testfile.txt"
 ```
 #### ✅ Expected Output:
 ```
-Hello, Tarak!
+Hello, tanmay!
 ```
 This confirms that the file was successfully created and accessible inside the container. 🎉
 
@@ -74,7 +74,7 @@ docker exec -it new_alpine sh -c "cat /data/testfile.txt"
 ```
 #### ✅ Expected Output:
 ```
-Hello, Tarak!
+Hello, tanmay!
 ```
 This demonstrates that **bind mounts preserve data even when containers are deleted**. 🔥
 
